@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 setup_start() {
 echo "$(tput setaf 6)
   _   _   _     _   _   _   _   _     _   _   _   _   _   _   _   _   _
@@ -1191,7 +1192,7 @@ if [[ ! -d $HOME/RetroPie-Setup ]]; then
     echo "Sorry.The mugen installer is only available for builds with RetroPie installed."
     sleep 5
     exit
-fi
+fi'
 if [ ! -f /usr/bin/version-mugen ]; then
 sudo cat <<\EOF8954 > "/home/pi/version-mugen"
 Supreme Team & Retro-Devils
