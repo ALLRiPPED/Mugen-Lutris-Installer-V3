@@ -652,7 +652,7 @@ sudo cp /etc/emulationstation/es_systems.cfg /tmp
 cat /tmp/es_systems.cfg |grep -v "</systemList>" > /tmp/templist.xml
 
 ifexist=`cat /tmp/templist.xml |grep wine |wc -l`
-if [[ ${ifexist} > 0 ]]; then
+if [[ ${ifexist} -gt 0 ]]; then
   echo "Wine already in es_systems.cfg" > /tmp/exists
 else
   echo "  <system>" >> /tmp/templist.xml
@@ -1132,7 +1132,7 @@ sudo cp /etc/emulationstation/es_systems.cfg /tmp
 cat /tmp/es_systems.cfg |grep -v "</systemList>" > /tmp/templist.xml
 
 ifexist=`cat /tmp/templist.xml |grep lutris |wc -l`
-if [[ ${ifexist} > 0 ]]; then
+if [[ ${ifexist} -gt 0 ]]; then
   echo "lutris already in es_systems.cfg" > /tmp/exists
 else
   echo "  <system>" >> /tmp/templist.xml
