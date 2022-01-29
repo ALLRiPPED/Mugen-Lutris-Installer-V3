@@ -6,7 +6,7 @@
 #
 clear
 
-setup_start() { 
+setup_start() {
 echo "$(tput setaf 6)
   _   _   _     _   _   _   _   _     _   _   _   _   _   _   _   _   _
  / \ / \ / \   / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \ / \ / \ / \ 
