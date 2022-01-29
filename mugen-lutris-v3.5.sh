@@ -4,7 +4,7 @@
 # Author      : Retro-Devils & Supreme Team
 # Version     : 3.5
 #
-clear
+clear 
 
 setup_start() {
 echo "$(tput setaf 6)
