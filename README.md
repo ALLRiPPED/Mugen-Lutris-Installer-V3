@@ -2,7 +2,9 @@ The one line Mugen-lutris installer V3 Public Test.
 If everything works we will update the github :)
 
 [ Installation ]
-New One: ``` curl -sSl https://raw.githubusercontent.com/ALLRiPPED/Mugen-Lutris-Installer-V3/main/mugen-lutris-v3.sh | bash ```
+New One:
+``` curl -sSl https://raw.githubusercontent.com/ALLRiPPED/Mugen-Lutris-Installer-V3/main/mugen-lutris-v3.sh | bash ```
+
 Old One: curl -sSL https://git.io/Jz9O3 | bash
 
 Sources:
