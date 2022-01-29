@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 
 setup_start() {
 echo "$(tput setaf 6)
