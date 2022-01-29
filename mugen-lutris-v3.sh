@@ -4,7 +4,7 @@
 # Author      : Retro-Devils & Supreme Team
 # Version     : 3.5
 #
-setup_start() {
+function setup_start() {
 echo "$(tput setaf 6)
   _   _   _     _   _   _   _   _     _   _   _   _   _   _   _   _   _
  / \ / \ / \   / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \ / \ / \ / \ 
