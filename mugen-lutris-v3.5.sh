@@ -46,9 +46,9 @@ function gui_mugen() {
             - "*** BOX86-WINE - SELECTIONS ***" \
             7 "Box86-Wine Full Install with all updates"
             8 "Box86-Wine Full Install without updates"
-			- "*** UNINSTALL IT ALL WINE/BOX86/MUGEN/MESA/VULKAN ***" \
-			- "" \
-			9 "Remove All Mugen Mesa-Vulkan Box86-Wine" \
+            - "" \
+            - "*** UNINSTALL IT ALL WINE/BOX86/MUGEN/MESA/VULKAN ***" \
+            9 "Remove All Mugen Mesa-Vulkan Box86-Wine" \
         )
 
 
