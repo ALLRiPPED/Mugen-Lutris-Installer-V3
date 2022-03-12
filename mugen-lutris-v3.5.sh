@@ -846,6 +846,13 @@ EOF8383
 
 sudo mv /home/pi/wine_desktop /usr/bin/wine_desktop
 sudo chmod +x /usr/bin/wine_desktop
+
+cd "$HOME" || exit
+wget https://dl.winehq.org/wine/wine-mono/5.1.1/wine-mono-5.1.1-x86.msi
+wget https://dl.winehq.org/wine/wine-gecko/2.47.2/wine-gecko-2.47.2-x86.msi
+wine msiexec /i ~/wine-mono-5.1.1-x86.msi /quiet /qn /norestart /log ~/wine-mono-install.log PROPERTY1=value1 PROPERTY2=value2
+wine msiexec /i ~/wine-gecko-2.47.2-x86.msi /quiet /qn /norestart /log ~/wine-gecko-install.log PROPERTY1=value1 PROPERTY2=value2
+rm -f wine-mono-5.1.1-x86.msi wine-gecko-2.47.2-x86.msi
 }
 
 
