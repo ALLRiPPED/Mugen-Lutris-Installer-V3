@@ -407,6 +407,7 @@ compile_box86() {
     if [[ ! -d "$INSTALL_DIRECTORY" ]]; then
         echo
         git clone "$SOURCE_PATH" "$INSTALL_DIRECTORY" && cd "$_" || exit 1
+        git checkout tags/v0.2.4
     else
         echo -e "\nUpdating the repo if proceed,...\n"
         cd "$INSTALL_DIRECTORY" && git pull
@@ -462,8 +463,8 @@ install_winex86() {
     local WINE_PKG
     local DEBIAN_F_PKGS_URL
     local WINETRICKS_URL
-    WINE_PKG_I386="https://dl.winehq.org/wine-builds/debian/dists/buster/main/binary-i386/wine-stable-i386_6.0.0~buster-1_i386.deb"
-    WINE_PKG="https://dl.winehq.org/wine-builds/debian/dists/buster/main/binary-i386/wine-stable_6.0.0~buster-1_i386.deb"
+    WINE_PKG_I386="https://dl.winehq.org/wine-builds/debian/dists/buster/main/binary-i386/wine-stable-i386_6.0.3~buster-1_i386.deb"
+    WINE_PKG="https://dl.winehq.org/wine-builds/debian/dists/buster/main/binary-i386/wine-stable_6.0.3~buster-1_i386.deb"
     DEBIAN_F_PKGS_URL="http://ftp.us.debian.org/debian/pool/main/f/faudio/"
     WINETRICKS_URL="https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks"
 
