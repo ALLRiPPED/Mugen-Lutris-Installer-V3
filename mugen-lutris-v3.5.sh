@@ -79,7 +79,7 @@ function gui_mugen() {
                 8)
                     box86_wine_check
                     ;;
-				9)
+                9)
                     clean_check
 					;;
                 -)
@@ -116,6 +116,7 @@ box86-wine-shortcuts
 box86-wine-es
 box86-wine-desktop
 box86-wine-roms
+box86-wine-mono-gecko
 }
 
 mesa_vulkan_check() { 
@@ -129,6 +130,7 @@ box86-wine-shortcuts
 box86-wine-es
 box86-wine-desktop
 box86-wine-roms
+box86-wine-mono-gecko
 }
 
 
@@ -220,6 +222,15 @@ sudo rm -r /opt/retropie/configs/ports/wine* 2>/dev/null
 sudo rm -r /home/pi/.wine 2>/dev/null
 sudo rm -r /home/pi/box86 2>/dev/null
 sudo rm -r /home/pi/wine 2>/dev/null
+sudo rm -f /usr/local/bin/box86 2>/dev/null
+sudo rm -f /usr/local/bin/wine 2>/dev/null
+sudo rm -f /usr/local/bin/wineboot 2>/dev/null
+sudo rm -f /usr/local/bin/winecfg 2>/dev/null
+sudo rm -f /usr/local/bin/wineserver 2>/dev/null
+sudo rm -f /usr/local/bin/winetricks 2>/dev/null
+sudo rm -f /usr/bin/wine_desktop 2>/dev/null
+sudo rm -f /usr/bin/version-mugen 2>/dev/null
+sudo rm -f /usr/share/bash-completion/completions/wine 2>/dev/null
 sudo rm -r /home/pi/RetroPie/roms/wine 2>/dev/null
 sudo rm -r /home/pi/RetroPie/roms/ports/wine 2>/dev/null
 sudo rm -r /home/pi/RetroPie/roms/ports/Mugen 2>/dev/null
@@ -240,7 +251,7 @@ box86-wine-desktop
 box86-wine-roms
 install_mugen
 setup_controller
-
+box86-wine-mono-gecko
 echo -e "$(tput setaf 2)
 Now Rebooting to save changes, please wait...
 $(tput sgr0)"
@@ -515,8 +526,6 @@ install_winex86() {
     sudo chown pi:pi /home/pi/wine/bin/winetricks
     sudo chown pi:pi /usr/local/bin/winetricks
     generate_icon_winetricks
-
-    #wine wineboot
 }
 
 is_kernel_64_bits() {
@@ -580,6 +589,7 @@ install() {
     compile_box86
     echo -e "\nInstalling Wine x86..."
     install_winex86
+
 echo -e "$(tput setaf 2)
 Done!
 $(tput sgr0)"
@@ -686,6 +696,16 @@ cat <<\EOF100 > "/home/pi/Desktop/Update-wine-configs.sh"
 wine wineboot
 EOF100
 sudo chmod +x /home/pi/Desktop/Update-wine-configs.sh
+}
+
+box86-wine-mono-gecko() {
+    wine wineboot
+    cd "$HOME" || exit
+    wget https://dl.winehq.org/wine/wine-mono/5.1.1/wine-mono-5.1.1-x86.msi
+    wget https://dl.winehq.org/wine/wine-gecko/2.47.2/wine-gecko-2.47.2-x86.msi
+    wine msiexec /i ~/wine-mono-5.1.1-x86.msi /quiet /qn /norestart PROPERTY1=value1 PROPERTY2=value2
+    wine msiexec /i ~/wine-gecko-2.47.2-x86.msi /quiet /qn /norestart PROPERTY1=value1 PROPERTY2=value2
+    rm -f wine-mono-5.1.1-x86.msi wine-gecko-2.47.2-x86.msi
 }
 
 box86-wine-roms() {
@@ -846,13 +866,6 @@ EOF8383
 
 sudo mv /home/pi/wine_desktop /usr/bin/wine_desktop
 sudo chmod +x /usr/bin/wine_desktop
-
-cd "$HOME" || exit
-wget https://dl.winehq.org/wine/wine-mono/5.1.1/wine-mono-5.1.1-x86.msi
-wget https://dl.winehq.org/wine/wine-gecko/2.47.2/wine-gecko-2.47.2-x86.msi
-wine msiexec /i ~/wine-mono-5.1.1-x86.msi /quiet /qn /norestart /log ~/wine-mono-install.log PROPERTY1=value1 PROPERTY2=value2
-wine msiexec /i ~/wine-gecko-2.47.2-x86.msi /quiet /qn /norestart /log ~/wine-gecko-install.log PROPERTY1=value1 PROPERTY2=value2
-rm -f wine-mono-5.1.1-x86.msi wine-gecko-2.47.2-x86.msi
 }
 
 
