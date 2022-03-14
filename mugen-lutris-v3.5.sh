@@ -889,7 +889,7 @@ sudo rm /home/pi/RetroPie/roms/wine/games/Mugen/sprmake2.exe  2>/dev/null
 sudo rm /home/pi/RetroPie/roms/wine/games/Mugen/sff2png.exe  2>/dev/null
 sudo rm /home/pi/RetroPie/roms/wine/games/Mugen/sndmaker.exe  2>/dev/null
 
-curl -s https://github.com/ALLRiPPED/Mugen-Lutris-Installer-V3/raw/main/Mugen.cfg -o /home/pi/RetroPie/roms/wine/games/Mugen/data/mugen.cfg
+curl -s https://raw.githubusercontent.com/SupremePi/Mugen-Lutris-Installer-V3/main/Mugen.cfg -o /home/pi/RetroPie/roms/wine/games/Mugen/data/mugen.cfg
 sudo chmod +x /home/pi/RetroPie/roms/wine/games/Mugen/data/mugen.cfg
 
 echo -e "$(tput setaf 2)
@@ -1206,14 +1206,18 @@ fi
 }
 
 installed_version() {
+if [ -f /usr/bin/version-mugen ]; then
+sudo rm /usr/bin/version-mugen
+fi
+
 if [ ! -f /usr/bin/version-mugen ]; then
-sudo cat <<\EOF8954 > "/home/pi/version-mugen"
+sudo bash -c 'cat << EOF > /usr/bin/version-mugen
 Supreme Team & Retro-Devils
 Mugen & Lutris V3.5
-EOF8954
-sudo mv /home/pi/version-mugen /usr/bin/version-mugen
+EOF'
 sudo chmod +x /usr/bin/version-mugen
 fi
+
 setup_start
 }
 
