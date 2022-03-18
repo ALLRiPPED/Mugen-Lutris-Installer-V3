@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Description : Easy Mugen-Lutris Setup
-# Author      : Supreme Team
+# Author      : Retro-Devils & Supreme Team
 # Version     : 3.5
 #
 clear
@@ -22,7 +22,7 @@ install() {
         exit
     fi
 
-    curl -s https://raw.githubusercontent.com/ALLRiPPED/Mugen-Lutris-Installer-V3/main/mugen-lutris-v3.5.sh | bash 
+    curl -s https://raw.githubusercontent.com/SupremePi/Mugen-Lutris-Installer-V3/main/mugen-lutris-v3.sh | bash
 }
 
 install
